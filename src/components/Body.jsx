@@ -52,6 +52,7 @@ class Body extends Component {
 
   render() {
     const isLoading = !this.state.isLoading? null: "Retrieving data..."
+    const loadButton = <Button onClick={this.fetchData.bind(this)} variant="contained" >Execute Order 66</Button>
     const dataComponents = this.state.swData.length? this.state.swData.map(item => <DataItem key={item.url} data={item} />): null
     const clearButton = this.state.swData.length? <Button variant="contained" onClick={this.clearResults.bind(this)} style={{marginLeft:10}}>Clear</Button> : null
 
@@ -59,7 +60,7 @@ class Body extends Component {
       <div style={{minHeight:550}}>
         <Grid container justify="center" style={{marginTop:75,marginBottom:25}}>
           <Grid item md={3}>
-            <Button onClick={this.fetchData.bind(this)} variant="contained" >Fetch Data</Button>
+            {loadButton}
             {clearButton}
           </Grid>
         </Grid>

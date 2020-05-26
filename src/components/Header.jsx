@@ -1,6 +1,6 @@
 import React from 'react'
 import { AppBar, Toolbar, Typography, makeStyles, useScrollTrigger, Slide } from '@material-ui/core'
-import logo from '../assets/death-star.svg'
+import logo from '../assets/star-wars-logo.svg'
 
 const Header = (props) => {
 
@@ -19,11 +19,11 @@ const Header = (props) => {
     return {
       toolbarMargin: {
         ...theme.mixins.toolbar,
-        marginBottom: "3em"
+        marginBottom: "7em"
       },
       logo: {
         height: "7em",
-        padding: 5
+        padding: 15
       }
     }
   })
@@ -35,7 +35,7 @@ const Header = (props) => {
       <AppBar>
         <Toolbar disableGutters >
           <img src={logo} alt="Logo" className={classes.logo}/>
-          <Typography variant="h3" >Star Wars App</Typography>
+          <Typography variant="h3" ></Typography>
         </Toolbar>
       </AppBar>
       </HideOnScroll>
