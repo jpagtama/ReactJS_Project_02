@@ -9,6 +9,9 @@ const DataItem = (props) => {
           {props.data.name}
         </Typography>
         <Typography>
+          Birth Year: {props.data.birth_year}
+        </Typography>
+        <Typography>
           Gender: {props.data.gender}
         </Typography>
         <Typography>

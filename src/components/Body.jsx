@@ -30,13 +30,13 @@ const Body = () => {
   }
 
   const isLoading = !loadingState.isLoading? "": "Retrieving data..."
-  const dataComponents = swapiState.length? swapiState.map(item => <DataItem key={item.url} data={item} />): ""
+  const dataComponents = swapiState.length? swapiState.map(item => <DataItem key={item.url} data={item} />): null
   const clearButton = swapiState.length? <Button variant="contained" onClick={clearResults} style={{marginLeft:10}}>Clear</Button> : null
 
   return (
     <div style={{minHeight:550}}>
       <Grid container justify="center" style={{marginTop:75,marginBottom:25}}>
-        <Grid item>
+        <Grid item md={3}>
           <Button onClick={fetchData} variant="contained" >Fetch Data</Button>
           {clearButton}
         </Grid>
