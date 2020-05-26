@@ -10,7 +10,6 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <Header />
       <Body />
-      <Footer />
     </ThemeProvider>
   )
 }
