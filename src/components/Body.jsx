@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import DataItem from './DataItem'
 import { Grid,Button } from '@material-ui/core'
 
@@ -8,8 +8,15 @@ const Body = () => {
   const [swapiState, setSwapi] = useState([])
   const [pageState, setPage] = useState(1)
 
+  useEffect(() => {
+    retrieveData()
+  }, [])
 
   const fetchData = () => {
+    retrieveData()
+  }
+
+  const retrieveData = () => {
     setLoading({isLoading: true})
     fetch(`https://swapi.dev/api/people/?page=${pageState}`)
     .then(response => response.json())
