@@ -1,63 +1,80 @@
-import React, {useState, useEffect} from 'react'
+import React, {Component, setState} from 'react'
 import DataItem from './DataItem'
 import { Grid,Button } from '@material-ui/core'
 
-const Body = () => {
-
-  const [loadingState, setLoading] = useState({isLoading:false})
-  const [swapiState, setSwapi] = useState([])
-  const [pageState, setPage] = useState(1)
-
-  useEffect(() => {
-    retrieveData()
-  }, [])
-
-  const fetchData = () => {
-    retrieveData()
+class Body extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      isLoading: false,
+      swData: [],
+      page: 1
+    }
   }
 
-  const retrieveData = () => {
-    setLoading({isLoading: true})
-    fetch(`https://swapi.dev/api/people/?page=${pageState}`)
+  fetchData() {
+    this.setState(prevState => {
+      prevState.isLoading = true
+      return prevState
+    })
+    fetch(`https://swapi.dev/api/people/?page=${this.state.page}`)
     .then(response => response.json())
     .then(data => {
-      if (data.results && data.results.length) {
-        let stateCopy = [...swapiState]
-        stateCopy.push(...data.results)
-        setSwapi(stateCopy)
-        setPage(prevPage => ++prevPage)
+      if (data.results !== undefined && data.results.length) {
+        this.setState(prevState => {
+          prevState.isLoading = false
+          prevState.swData.push(...data.results)
+          ++prevState.page
+          return prevState
+        })
+      } else {
+        this.setState(prevState => {
+          prevState.isLoading = false
+          return prevState
+        })
       }
+    }).catch(() => {
+      this.setState(prevState => {
+        prevState.isLoading = false
+        return prevState
+      })
     })
-    setLoading({isLoading: false})
   }
 
-  const clearResults = () => {
-    setSwapi([])
-    setPage(1)
+  clearResults() {
+    this.setState(prevState => {
+      prevState.swData = []
+      prevState.page = 1
+      prevState.isLoading = false
+      return prevState
+    })
   }
 
-  const isLoading = !loadingState.isLoading? "": "Retrieving data..."
-  const dataComponents = swapiState.length? swapiState.map(item => <DataItem key={item.url} data={item} />): null
-  const clearButton = swapiState.length? <Button variant="contained" onClick={clearResults} style={{marginLeft:10}}>Clear</Button> : null
+  render() {
+    const isLoading = !this.state.isLoading? null: "Retrieving data..."
+    const dataComponents = this.state.swData.length? this.state.swData.map(item => <DataItem key={item.url} data={item} />): null
+    const clearButton = this.state.swData.length? <Button variant="contained" onClick={this.clearResults.bind(this)} style={{marginLeft:10}}>Clear</Button> : null
 
-  return (
-    <div style={{minHeight:550}}>
-      <Grid container justify="center" style={{marginTop:75,marginBottom:25}}>
-        <Grid item md={3}>
-          <Button onClick={fetchData} variant="contained" >Fetch Data</Button>
-          {clearButton}
+    return (
+      <div style={{minHeight:550}}>
+        <Grid container justify="center" style={{marginTop:75,marginBottom:25}}>
+          <Grid item md={3}>
+            <Button onClick={this.fetchData.bind(this)} variant="contained" >Fetch Data</Button>
+            {clearButton}
+          </Grid>
         </Grid>
-      </Grid>
-      <Grid container justify="center" >
-        <Grid item md={2}>
-          {isLoading}
+        <Grid container justify="center" >
+          <Grid item md={2}>
+            {isLoading}
+          </Grid>
         </Grid>
-      </Grid>
-      <Grid container justify="flex-start" style={{marginBottom:25}}>
-          {dataComponents}
-      </Grid>
-    </div>
-  )
+        <Grid container justify="flex-start" style={{marginBottom:25}}>
+            {dataComponents}
+        </Grid>
+      </div>
+    )
+  }
 }
+
 
 export default Body

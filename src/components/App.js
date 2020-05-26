@@ -4,13 +4,15 @@ import Body from './Body'
 import { ThemeProvider } from '@material-ui/core'
 import theme from '../assets/themes/Theme'
 
-const App = () => {
-  return (
-    <ThemeProvider theme={theme}>
+class App extends React.Component {
+  render() {
+    return (
+      <ThemeProvider theme={theme}>
       <Header />
       <Body />
-    </ThemeProvider>
-  )
+      </ThemeProvider>
+    )
+  }
 }
 
 export default App

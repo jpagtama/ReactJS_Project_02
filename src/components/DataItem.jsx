@@ -4,7 +4,7 @@ import { Grid, Typography, Paper } from '@material-ui/core'
 const DataItem = (props) => {
   return (
     <Grid item md={4} >
-      <Paper elevation={5} style={{margin:5,padding:5}}>
+      <Paper elevation={5} style={{margin:5,padding:10}}>
         <Typography variant="h4" style={{color:"red"}}>
           {props.data.name}
         </Typography>
