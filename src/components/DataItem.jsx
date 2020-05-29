@@ -7,7 +7,7 @@ class DataItem extends Component {
     return (
       <Grid item md={4} >
         <Paper elevation={5} style={{margin:5,padding:10}}>
-          <Grid container justify="between">
+          <Grid container justify="space-between">
             <Grid item md={8}>
             <Typography variant="h4" style={{color:"red"}}>
               {this.props.data.name}
