@@ -7,12 +7,17 @@ const Header = () => {
         return ({
             tabs: {
                 marginLeft: "auto"
+            },
+            toolbar: {
+                ...theme.mixins.toolbar,
+                height: '7em'
             }
         })
     })
     const classes = useStyles()
 
     return (
+        <React.Fragment>
         <AppBar>
             <Toolbar>
                 <Typography variant="h1">Header</Typography>
@@ -23,6 +28,8 @@ const Header = () => {
                 </Tabs>
             </Toolbar>
         </AppBar>
+        <div className={classes.toolbar} ></div>
+        </React.Fragment>
     )
 }
 
