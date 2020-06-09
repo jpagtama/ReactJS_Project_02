@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { AppBar, Toolbar, Typography, Tabs, Tab, makeStyles } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 
 const Header = () => {
+    const [activeTab, setTab] = useState(0)
     const useStyles = makeStyles(theme => {
         return ({
             tabs: {
@@ -14,6 +15,11 @@ const Header = () => {
             }
         })
     })
+
+    const tabHandler = (e, value) => {
+        setTab(value)
+    }
+
     const classes = useStyles()
 
     return (
@@ -21,7 +27,7 @@ const Header = () => {
         <AppBar>
             <Toolbar>
                 <Typography variant="h1">Header</Typography>
-                <Tabs className={classes.tabs} value={0}>
+                <Tabs className={classes.tabs} value={activeTab} onChange={tabHandler}>
                     <Tab label="Home" component={Link} to="/" />
                     <Tab label="Profile" component={Link} to="/profile" />
                     <Tab label="API" component={Link} to="/api" />
