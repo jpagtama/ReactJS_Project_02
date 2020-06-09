@@ -1,8 +1,9 @@
 import React from 'react'
 import { Typography } from '@material-ui/core'
 
-const Home = () => {
-    console.log("reached home")
+const Home = (props) => {
+    console.log("props", props)
+
     return (
         <Typography>
             Home

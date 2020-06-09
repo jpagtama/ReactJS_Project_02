@@ -1,6 +1,7 @@
 import React from 'react'
 
-const StarWars = () => {
+const StarWars = (props) => {
+    console.log("props", props)
     return (
         <div>
             Star Wars

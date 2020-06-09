@@ -1,7 +1,7 @@
 import React from 'react'
 
-const Profile = () => {
-    console.log("reached profile")
+const Profile = (props) => {
+    console.log("props", props)
     return (
         <div>
             Profile

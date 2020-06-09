@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { AppBar, Toolbar, Typography, Tabs, Tab, makeStyles } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 
-const Header = () => {
+const Header = (props) => {
+    console.log("props>", props)
     const [activeTab, setTab] = useState(0)
     const useStyles = makeStyles(theme => {
         return ({
@@ -15,10 +16,20 @@ const Header = () => {
             }
         })
     })
-
-    const tabHandler = (e, value) => {
-        setTab(value)
-    }
+    const location = null
+    useEffect(() => {
+        location = props.match.path
+        switch (location) {
+            case '/profile':
+                setTab(1)
+                break
+            case '/api':
+                setTab(2)
+                break
+            default:
+                setTab(0)
+        }
+    }, [location])
 
     const classes = useStyles()
 
@@ -27,7 +38,7 @@ const Header = () => {
         <AppBar>
             <Toolbar>
                 <Typography variant="h1">Header</Typography>
-                <Tabs className={classes.tabs} value={activeTab} onChange={tabHandler}>
+                <Tabs className={classes.tabs} value={activeTab} >
                     <Tab label="Home" component={Link} to="/" />
                     <Tab label="Profile" component={Link} to="/profile" />
                     <Tab label="API" component={Link} to="/api" />
