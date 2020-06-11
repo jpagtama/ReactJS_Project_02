@@ -10,6 +10,10 @@ const customTheme = createMuiTheme({
         },
         secondary: {
             main: mint
+        },
+        common: {
+            sailor: `${sailorBlue}`,
+            mint: `${mint}`
         }
     }, 
     typography: {
