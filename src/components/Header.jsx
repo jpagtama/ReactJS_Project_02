@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import { AppBar, Toolbar, Typography, Tabs, Tab, makeStyles } from '@material-ui/core'
+import { AppBar, Toolbar, Typography, Tabs, Tab, makeStyles, Button } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 
 const Header = (props) => {
     const [activeTab, setTab] = useState(0)
     const pathname = window.location.pathname
-    
+
     const useStyles = makeStyles(theme => {
         return ({
             tabs: {
-                marginLeft: "auto"
+                marginLeft: "auto",
+                marginRight: "2em"
             },
             toolbar: {
                 ...theme.mixins.toolbar,
@@ -33,6 +34,8 @@ const Header = (props) => {
         }
     }, [pathname])
 
+    const logInOut = props.user.isLoggedIn? "Profile": "Log In"
+
     const tabHandler = (e, value) => {
         setTab(value)
     }
@@ -48,6 +51,7 @@ const Header = (props) => {
                     <Tab label="Profile" component={Link} to="/profile" />
                     <Tab label="API" component={Link} to="/api" />
                 </Tabs>
+                <Button variant="contained" color="secondary" onClick={props.handleAuth}>{logInOut}</Button>
             </Toolbar>
         </AppBar>
         <div className={classes.toolbar} ></div>
