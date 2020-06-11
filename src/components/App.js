@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Header from './Header'
 import Main from './Main'
 import Footer from './Footer'
@@ -15,7 +15,6 @@ const App = () => {
 
   const handleAuth = (event) => {
     setAuthenticated(prevState => !prevState)
-    console.log("handled auth: ", authenticated)
   }
 
   return (

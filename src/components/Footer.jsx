@@ -1,11 +1,12 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core'
+import { Typography, makeStyles } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
     footer: {
         backgroundColor: theme.palette.common.sailor,
         color: theme.palette.common.white,
-        width: "100%"
+        width: "100%",
+        padding: "2em"
     }
 }))
 
@@ -13,7 +14,7 @@ const Footer = () => {
     const classes = useStyles()
 
     return (
-        <footer className={classes.footer}>Example Footer</footer>
+        <footer className={classes.footer}><Typography>Example Footer</Typography></footer>
     )
 }
 

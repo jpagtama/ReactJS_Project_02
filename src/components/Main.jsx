@@ -6,11 +6,13 @@ import { Route, Switch } from 'react-router-dom'
 
 const Main = () => {
     return (
-        <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/profile" exact component={Profile} />
-            <Route path="/api" component={StarWars} />
-        </Switch>
+        <div style={{minHeight:750}}>
+            <Switch>
+                <Route path="/" exact component={Home} />
+                <Route path="/profile" exact component={Profile} />
+                <Route path="/api" component={StarWars} />
+            </Switch>
+        </div>
     )
 }
 
