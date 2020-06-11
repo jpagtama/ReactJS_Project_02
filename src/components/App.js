@@ -7,21 +7,21 @@ import customTheme from '../assets/themes/customTheme'
 import { BrowserRouter } from 'react-router-dom'
 
 const App = () => {
-  const[userAuth, setUserAuth] = useState({
-    isLoggedIn: false,
+  const[userAuth] = useState({
     firstName: "Bruce",
     lastName: "Wayne"
   })
+  const [authenticated, setAuthenticated] = useState(false)
 
   const handleAuth = (event) => {
-    console.log("reached handleAuth")
-    setUserAuth(prevState => !prevState.isLoggedIn)
+    setAuthenticated(prevState => !prevState)
+    console.log("handled auth: ", authenticated)
   }
 
   return (
     <ThemeProvider theme={customTheme}>
       <BrowserRouter>
-        <Header user={userAuth} handleAuth={handleAuth}/>
+        <Header user={userAuth} handleAuth={handleAuth} authenticated={authenticated} />
         <Main />
         <Footer />
       </BrowserRouter>

@@ -34,7 +34,7 @@ const Header = (props) => {
         }
     }, [pathname])
 
-    const logInOut = props.user.isLoggedIn? "Profile": "Log In"
+    const logInOut = props.authenticated? "Profile": "Log In"
 
     const tabHandler = (e, value) => {
         setTab(value)
