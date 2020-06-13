@@ -25,23 +25,21 @@ const App = () => {
     setActiveTab(value)
   }
 
-    useEffect(() => {
-      switch(location.pathname) {
-        case '/':
-          setActiveTab(0)
-          break
-        case '/profile':
-          setActiveTab(1)
-          break
-        case '/api':
-          setActiveTab(2)
-          break
-        default :
-          setActiveTab(0)
-      }
-    }, [location.pathname])
-
-  console.log(location.pathname, "<pathname from App")
+  useEffect(() => {
+    switch(location.pathname) {
+      case '/':
+        setActiveTab(0)
+        break
+      case '/profile':
+        setActiveTab(1)
+        break
+      case '/api':
+        setActiveTab(2)
+        break
+      default :
+        setActiveTab(0)
+    }
+  }, [location.pathname])
 
   return (
     <ThemeProvider theme={customTheme}>

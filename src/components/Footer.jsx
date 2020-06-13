@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Grid, makeStyles } from '@material-ui/core'
+import { Grid, makeStyles, Hidden } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
     footer: {
@@ -22,22 +22,24 @@ const Footer = () => {
 
     return (
         <footer className={classes.footer}>
-            <Grid container justify="center" direction="row">
-                <Grid item xs={3}>
-                    <Grid container direction="column" spacing={2} justify="center" >
-                        <Grid item className={classes.link} component={Link} to="/" >About Us</Grid>
-                        <Grid item className={classes.link} component={Link} to="/faq" >FAQ</Grid>
-                        <Grid item className={classes.link} component={Link} to="/contact" >Contact Us</Grid>
+            <Hidden xsDown>
+                <Grid container justify="center" direction="row" spacing={2}>
+                    <Grid item xs={6}>
+                        <Grid container direction="column" spacing={2} alignItems="flex-end" >
+                            <Grid item className={classes.link} component={Link} to="/" >About Us</Grid>
+                            <Grid item className={classes.link} component={Link} to="/faq" >FAQ</Grid>
+                            <Grid item className={classes.link} component={Link} to="/contact" >Contact Us</Grid>
+                        </Grid>
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Grid container direction="column" spacing={2} alignItems="flex-start" >
+                            <Grid item className={classes.link} component={Link} to="/" >Home</Grid>
+                            <Grid item className={classes.link} component={Link} to="/profile" >Profile</Grid>
+                            <Grid item className={classes.link} component={Link} to="/api" >API</Grid>
+                        </Grid>
                     </Grid>
                 </Grid>
-                <Grid item xs={3}>
-                    <Grid container direction="column" spacing={2} justify="center" >
-                        <Grid item className={classes.link} component={Link} to="/" >Home</Grid>
-                        <Grid item className={classes.link} component={Link} to="/profile" >Profile</Grid>
-                        <Grid item className={classes.link} component={Link} to="/api" >API</Grid>
-                    </Grid>
-                </Grid>
-            </Grid>
+            </Hidden>
         </footer>
     )
 }
