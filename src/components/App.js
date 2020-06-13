@@ -4,6 +4,7 @@ import Home from './Home'
 import Profile from './Profile'
 import StarWars from './StarWars'
 import Footer from './Footer'
+import Contact from './Contact'
 import { ThemeProvider } from '@material-ui/core'
 import customTheme from '../assets/themes/customTheme'
 import { Route, Switch, useLocation } from 'react-router-dom'
@@ -49,6 +50,7 @@ const App = () => {
                 <Route path="/" exact component={Home} />
                 <Route path="/profile" exact component={Profile} />
                 <Route path="/api" component={StarWars} />
+                <Route path="/contact" component={Contact} />
             </Switch>
         </div>
         <Footer />
