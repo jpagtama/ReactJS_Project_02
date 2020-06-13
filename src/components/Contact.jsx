@@ -11,6 +11,7 @@ const Contact = () => {
     ]
 
     return (
+        <form autoComplete="off">
         <Grid container style={{padding:"1em",marginTop:"1em"}} justify="center" spacing={1}>
             <Grid container justify="center" spacing={1}>
                 <Grid item sm={6} >
@@ -48,6 +49,7 @@ const Contact = () => {
                 </Grid>
             </Grid>
         </Grid>
+        </form>
     )
 }
 

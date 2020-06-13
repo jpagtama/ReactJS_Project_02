@@ -28,6 +28,7 @@ const Header = (props) => {
                     <Tab label="Home" component={Link} to="/" />
                     <Tab label="Profile" component={Link} to="/profile" />
                     <Tab label="API" component={Link} to="/api" />
+                    <Tab label="Contact" component={Link} to="/contact" />
                 </Tabs>
                 <Button variant="contained" color="secondary" onClick={props.handleAuth}>{logInOut}</Button>
             </Toolbar>

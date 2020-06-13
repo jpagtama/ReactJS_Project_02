@@ -37,6 +37,9 @@ const App = () => {
       case '/api':
         setActiveTab(2)
         break
+      case '/contact':
+        setActiveTab(3)
+        break
       default :
         setActiveTab(0)
     }
