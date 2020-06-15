@@ -1,6 +1,7 @@
 import React from 'react'
-import { AppBar, Toolbar, Typography, Tabs, Tab, makeStyles, Button } from '@material-ui/core'
+import { AppBar, Toolbar, Tabs, Tab, makeStyles, Button } from '@material-ui/core'
 import { Link } from 'react-router-dom'
+import logo from '../assets/logo_scbox.svg'
 
 const Header = (props) => {
     const useStyles = makeStyles(theme => {
@@ -21,16 +22,16 @@ const Header = (props) => {
 
     return (
         <React.Fragment>
-        <AppBar>
-            <Toolbar>
-                <Typography variant="h1">Header</Typography>
+        <AppBar >
+            <Toolbar disableGutters>
+                <img src={logo} alt="Code in Strength Logo" height="85px" style={{margin:10}} />
                 <Tabs className={classes.tabs} value={props.activeTab} onChange={props.activateTabHandler} >
                     <Tab label="Home" component={Link} to="/" />
                     <Tab label="Profile" component={Link} to="/profile" />
                     <Tab label="API" component={Link} to="/api" />
                     <Tab label="Contact" component={Link} to="/contact" />
                 </Tabs>
-                <Button variant="contained" color="secondary" onClick={props.handleAuth}>{logInOut}</Button>
+                <Button variant="contained" color="secondary" onClick={props.handleAuth} style={{marginRight:10}}>{logInOut}</Button>
             </Toolbar>
         </AppBar>
         <div className={classes.toolbar} ></div>

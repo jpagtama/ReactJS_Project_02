@@ -1,19 +1,23 @@
 import { createMuiTheme } from '@material-ui/core'
 
-const sailorBlue = "#00203FFF"
-const mint = "#ADEFD1FF"
+const green = "#A7D129"
+const darkGreen = "#616F39"
+const darkestGreen = "#3E432E"
+const black = "#000000"
 
 const customTheme = createMuiTheme({
     palette: {
         primary: {
-            main: sailorBlue
+            main: black
         },
         secondary: {
-            main: mint
+            main: green
         },
         common: {
-            sailor: `${sailorBlue}`,
-            mint: `${mint}`
+            black: `${black}`,
+            green: `${green}`,
+            darkGreen: `${darkGreen}`,
+            darkestGreen: `${darkestGreen}`,
         }
     }, 
     typography: {

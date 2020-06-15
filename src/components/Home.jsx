@@ -4,7 +4,7 @@ import { Typography } from '@material-ui/core'
 const Home = (props) => {
 
     return (
-        <div style={{backgroundColor:"#ADEFD1FF"}}>
+        <div>
             <Typography >
                 Home
             </Typography>
