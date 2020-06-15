@@ -2,12 +2,13 @@ import React from 'react'
 import { Typography } from '@material-ui/core'
 
 const Home = (props) => {
-    // console.log("props from Home", props)
 
     return (
-        <Typography>
-            Home
-        </Typography>
+        <div style={{backgroundColor:"#ADEFD1FF"}}>
+            <Typography >
+                Home
+            </Typography>
+        </div>
     )
 }
 
