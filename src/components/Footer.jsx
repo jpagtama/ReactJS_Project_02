@@ -4,7 +4,7 @@ import { Grid, makeStyles, Hidden } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
     footer: {
-        backgroundColor: theme.palette.common.sailor,
+        backgroundColor: theme.palette.common.darkGreen,
         color: theme.palette.common.white,
         width: "100%",
         padding: "2em"

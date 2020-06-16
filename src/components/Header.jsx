@@ -22,7 +22,7 @@ const Header = (props) => {
 
     return (
         <React.Fragment>
-        <AppBar >
+        <AppBar>
             <Toolbar disableGutters>
                 <img src={logo} alt="Code in Strength Logo" height="85px" style={{margin:10}} />
                 <Tabs className={classes.tabs} value={props.activeTab} onChange={props.activateTabHandler} >

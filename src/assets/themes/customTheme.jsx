@@ -4,6 +4,7 @@ const green = "#A7D129"
 const darkGreen = "#616F39"
 const darkestGreen = "#3E432E"
 const black = "#000000"
+const charcoal = "#212121"
 
 const customTheme = createMuiTheme({
     palette: {
@@ -15,6 +16,7 @@ const customTheme = createMuiTheme({
         },
         common: {
             black: `${black}`,
+            charcoal: `${charcoal}`,
             green: `${green}`,
             darkGreen: `${darkGreen}`,
             darkestGreen: `${darkestGreen}`,
